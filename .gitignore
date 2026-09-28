@@ -1,0 +1,12 @@
+# Dependencies
+node_modules/
+
+# Env secrets (never commit)
+.env
+backend/.env
+frontend/.env
+
+# Builds / logs
+frontend/dist/
+*.log
+.DS_Store

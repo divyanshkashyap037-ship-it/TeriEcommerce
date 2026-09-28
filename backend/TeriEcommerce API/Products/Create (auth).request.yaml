@@ -1,0 +1,23 @@
+$kind: http-request
+url: "{{baseUrl}}/api/products"
+method: POST
+headers:
+  Content-Type: application/json
+  Authorization: Bearer {{accessToken}}
+body:
+  type: text
+  content: |-
+    {
+      "name": "Mechanical Keyboard",
+      "description": "RGB mechanical keyboard",
+      "price": 2499,
+      "stock": 20,
+      "category": "Keyboard",
+      "image": "https://example.com/image.jpg"
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      var json = pm.response.json();
+      if (json._id) { pm.collectionVariables.set('productId', json._id); }
+order: 1000

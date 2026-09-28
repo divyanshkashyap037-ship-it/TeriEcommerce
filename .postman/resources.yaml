@@ -1,0 +1,7 @@
+# Use this workspace to collaborate
+workspace:
+  id: 1a30c602-4715-49be-8b4c-097a50b2d792
+
+localResources:
+  collections:
+    - ../backend/TeriEcommerce API

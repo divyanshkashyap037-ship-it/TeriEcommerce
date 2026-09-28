@@ -1,0 +1,76 @@
+/* Home hero: single tall TERIECOMMERCE headline, centered. */
+.home-hero {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 72px 18px 36px;
+}
+
+.home-hero-title {
+  margin: 0;
+  white-space: nowrap;
+  text-align: center;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', 'Franklin Gothic Heavy', sans-serif;
+  font-weight: 900;
+  font-stretch: ultra-condensed;
+  font-size: clamp(2.4rem, 12vw, 10rem);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: #120f17;
+  transform: scaleY(3.2);
+  transform-origin: center;
+}
+
+@media (max-width: 640px) {
+  .home-hero-title {
+    font-size: 11vw;
+    transform: scaleY(2.6);
+  }
+}
+
+/* Featured section: full-bleed (touches both screen edges), hidden until
+   scrolled into view, then rises in. */
+.home-featured {
+  width: 100%;
+  margin-top: 10px;
+  padding: 18px 0 24px;
+  opacity: 0;
+  transform: translateY(48px);
+  transition: opacity 700ms ease, transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.home-featured[data-show] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.home-featured-title {
+  margin: 34px 0 14px;
+  text-align: center;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', 'Franklin Gothic Heavy', sans-serif;
+  font-weight: 900;
+  font-size: clamp(1.6rem, 4vw, 3rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #1d3a24;
+}
+
+.home-featured-veil {
+  width: 100%;
+  height: clamp(520px, 76vh, 760px);
+  position: relative;
+}
+
+@media (max-width: 640px) {
+  .home-featured-veil {
+    height: 480px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-featured {
+    transition: none;
+  }
+}

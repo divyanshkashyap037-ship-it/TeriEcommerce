@@ -1,0 +1,16 @@
+$kind: http-request
+url: "{{baseUrl}}/api/orders"
+method: POST
+headers:
+  Content-Type: application/json
+  Authorization: Bearer {{accessToken}}
+body:
+  type: text
+  content: |-
+    {
+      "items": [{ "product": "{{productId}}", "quantity": 2 }],
+      "name": "Divyansh",
+      "address": "123 Test Street",
+      "phone": "9999999999"
+    }
+order: 1000

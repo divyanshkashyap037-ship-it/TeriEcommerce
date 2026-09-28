@@ -1,0 +1,6 @@
+$kind: collection
+description: Express + MongoDB + JWT. Import into Postman. Set baseUrl variable. Login sets accessToken automatically via test script. Refresh cookie is handled by Postman cookie jar (enable cookies).
+variables:
+  baseUrl: http://localhost:5000
+  accessToken: ""
+  productId: ""
