@@ -16,9 +16,12 @@ app.set('trust proxy', 1);
 
 // CORS must allow the frontend origin AND credentials (cookies).
 // CLIENT_URL=http://localhost:5173 in .env for local dev.
+// Trailing slash is stripped: browsers send Origin without one, and the
+// comparison must match exactly.
+const clientOrigin = (process.env.CLIENT_URL || 'http://localhost:5173').replace(/\/+$/, '');
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || 'http://localhost:5173',
+    origin: clientOrigin,
     credentials: true,
   })
 );

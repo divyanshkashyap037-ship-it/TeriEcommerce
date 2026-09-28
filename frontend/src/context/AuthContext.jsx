@@ -3,7 +3,7 @@ import api, { setAccessToken, getAccessToken } from '../services/api';
 import axios from 'axios';
 import { AuthContext } from '../hooks/useAuth';
 
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const API_BASE = (import.meta.env.VITE_API_URL || 'http://localhost:5000').replace(/\/+$/, '');
 
 // Holds global auth state: user object + loading flag.
 // On app start, tries silent refresh (cookie -> new access token -> /me).

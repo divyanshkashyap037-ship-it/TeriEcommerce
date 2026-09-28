@@ -1,8 +1,10 @@
 import axios from 'axios';
 
 // Base URL comes from .env (VITE_API_URL) so it works in dev and production.
+// Trailing slashes are stripped so `${API_BASE}/api/...` never becomes `//api/...`.
+const API_BASE = (import.meta.env.VITE_API_URL || 'http://localhost:5000').replace(/\/+$/, '');
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000',
+  baseURL: API_BASE,
   withCredentials: true, // always send refresh-token cookie
   headers: { 'Content-Type': 'application/json' },
 });
@@ -36,7 +38,7 @@ function refreshAccessToken() {
   if (!refreshPromise) {
     refreshPromise = axios
       .post(
-        `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/auth/refresh-token`,
+        `${API_BASE}/api/auth/refresh-token`,
         {},
         { withCredentials: true }
       )
