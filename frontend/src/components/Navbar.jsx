@@ -3,7 +3,7 @@ import { useAuth } from '../hooks/useAuth';
 import { useCart } from '../hooks/useCart';
 import SpecularButton from './bits/SpecularButton';
 import GlassSurface from './bits/GlassSurface';
-import logo from '../assets/Gemini_Generated_Image_jwugmtjwugmtjwug-removebg-preview.png';
+import logo from '../assets/logo.png';
 
 // Whole nav sits inside a GlassSurface. Transparent outer wrapper sticks;
 // logo image is centered via a 3-column grid.
