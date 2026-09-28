@@ -42,11 +42,19 @@ app.use((req, res) => {
 // Central error handler (must be last)
 app.use(errorHandler);
 
+// Dev (`node server.js` / `npm run dev`): connect, then listen on PORT.
+// Vercel (serverless): this file is imported by api/[[...slug]].js and the
+// app itself is exported — no port is bound and a failed DB connect must not
+// kill the process.
 connectDB()
   .then(() => {
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+    if (require.main === module) {
+      app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+    }
   })
   .catch((err) => {
     console.error('Failed to connect to MongoDB:', err.message);
-    process.exit(1);
+    if (require.main === module) process.exit(1);
   });
+
+module.exports = app;
